@@ -19,22 +19,25 @@
             var n2 = document.getElementById('n2');
             var n3 = document.getElementById('n3');
             var result = "";
+
             if ( n3.value == "+" ) result = parseInt(n1.value) + parseInt(n2.value);
             else if ( n3.value == "-" ) result = parseInt(n1.value) - parseInt(n2.value);
             else if ( n3.value == "/" ) result = parseInt(n1.value) / parseInt(n2.value);
             else if ( n3.value == "*" ) result = parseInt(n1.value) * parseInt(n2.value);
             
 
-            var i =document.getElementById('result');
-            i.value = result;
+            var input =document.getElementById('result0');
+            input.value = result;
 
+            var a = 1;
+            var b = a;
             
         }
 
 
         function remove() {
-            var i =document.getElementById('result');
-            i.value = "";
+            var input =document.getElementById('result');
+            input.value = "";
 
 
         }
@@ -60,7 +63,7 @@
     
     <div>
         <label for="결과"> 결과 :</label>
-        <input type="text"  id="result">
+        <input type="text"  id="result0">
     </div>
 
     

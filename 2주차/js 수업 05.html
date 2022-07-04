@@ -19,15 +19,18 @@
         function addNode() {
             var p1 = document.createElement('p');
             var div1 = document.getElementById('div1');
-
+            
             p1.innerText='p태그입니다.';
             p1.className='name';
             p1.style='text=align:center';
+
             var img = document.createElement('img');
             img.src ="../img/00.png";
             img.width =100;
-            div1.appendChild(img);
+
+            div1.appendChild(img); //append : 부모노드에 자식노드를 추가하는 메소드
             div1.appendChild(p1);
+
     
         }
 
