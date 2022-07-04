@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - button</title>
+    <style>
+        div { background-color: pink;}
+        p { background-color: skyblue;}
+        .text { color: red;}
+    </style>
+    <script>
+
+        /*
+        
+        */
+
+        function addNode() {
+            var p1 = document.createElement('p');
+            var div1 = document.getElementById('div1');
+
+            p1.innerText='p태그입니다.';
+            p1.className='name';
+            p1.style='text=align:center';
+            var img = document.createElement('img');
+            img.src ="../img/00.png";
+            img.width =100;
+            div1.appendChild(img);
+            div1.appendChild(p1);
+    
+        }
+
+        function change() {
+            document.write('<h1>안녕</h1>'); 
+        }   //웬만하면 쓰면 안됨
+
+        function removeNode() {
+            var div1 = document.getElementById('div1');
+            var Child = document.getElementsByClassName('text');
+           // div1.removeChild(Child[0]); //한개만 삭제되야함
+           Child[0].remove();
+        }
+
+    </script>
+</head>
+<body>
+    <div id="div1"> div1 </div>
+    <div id="div2"> div2 </div>
+    <button type="button" onclick="addNode();"> 삽입 </button>
+    <button type="button" onclick="change();"> 변경 </button>
+    <button type="button" onclick="removeNode();"> 삭제 </button>
+
+</body>
+</html>
