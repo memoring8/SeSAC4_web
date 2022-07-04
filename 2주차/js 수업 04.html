@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - DOM</title>
+    <script>
+
+        /*
+        // 도큐먼트 요소 선택
+        document.getElementsByTagName (태그이름)
+        document.getElementById (아이디)
+        document.getElementsByClassName (클래스이름)
+        document.getElementsByName (name 속성값)
+        document.querySelectorAll (선택자)
+        */
+
+        // 도큐먼트 요소 다루기
+        document.
+        document.
+        document.
+
+
+    </script>
+</head>
+<body>
+    <img src="../img/01.png" title="1" width="100" height="100">
+    <img src="../img/02.png" title="2" width="100" height="100">
+    <img src="../img/03.png" title="3" width="100" height="100">
+
+    <div id="div1" class="div1">
+        <input type="text" id="input1" value="값">
+        <button type="button" onclick="submit();">  버튼 </button>
+        <p class="css1">p태그 1</p>
+        <p class="css1">p태그 2</p>
+        <div>
+            <p class="css1">p태그 3</p>
+        </div>
+    </div>
+
+    <script>
+        console.log(document.getElementsByTagName('img'));
+        console.log(document.getElementById('input1'));
+        console.log(document.querySelectorAll('#div1>.css1'));
+    
+        function submit() {
+            var input = document.getElementById('input1');
+            console.log(input.value);
+        }
+        
+    </script>
+
+</body>
+</html>

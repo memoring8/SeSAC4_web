@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js 객체 - 표준객체</title>
+    <title>js - DOM</title>
     <script>
 
 
-        // JS 표준 객체
-            // date 객체 - 날짜를 가져올 때 사용
-            // 초기화 하고 사용해야함
-        
-         var date = new Date();
-         console.log(date);
+        // DOM
+        // 도큐먼트 객체
+        // 도큐먼트 속성
+        console.log(document.documentElement); //모든요소 가져옴
+        console.log(codocument.head); //
+        console.log(document.title); //
+        console.log(document.body); //보이지 않음 //위에서부터 로딩되기 때문에
 
-            //date 함수 //js date 검색해서 보기
-            console.log(date.getFullYear());
-            console.log(date.getMonth()); //인덱스를 가져옴
-            console.log(date.getDate());
-            console.log(date.getDay());
-            console.log(date.getTime());
-            console.log(date.getHours());
-        
-            // math 객체 
-            // 초기화 필요 없음 - 생성장 존재 안함
-            // 정확한 결과 얻어야 할 때는 사용하지 않는 것이 좋음
-            console.log(Math.min());
-            console.log(Math.min(1, 2));
-            console.log(Math.min(-10, 2, '문자'));
+        console.log(document.URL); //실행시키고 있는 전체 주소 가져옴
+        console.log(document.domain); //도메인을 가져옴 //도메인은 사이트의 주소
 
+
+        // 도큐먼트 요소 선택
+        document.getElementsByTagName //태그이름
+        document.getElementById //아이디
+        document.getElementsByClassName //클래스이름
+        document.getElementsByName //name 속성값
+        document.querySelectorAll //선택자
 
     </script>
 </head>
 <body>
-    
+    <div>
+        <p>안녕</p>
+    </div>
+
+
 </body>
 </html>

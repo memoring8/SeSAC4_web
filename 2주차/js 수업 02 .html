@@ -26,10 +26,18 @@
             // math 객체 
             // 초기화 필요 없음 - 생성장 존재 안함
             // 정확한 결과 얻어야 할 때는 사용하지 않는 것이 좋음
-            console.log(Math.min());
-            console.log(Math.min(1, 2));
-            console.log(Math.min(-10, 2, '문자'));
+            console.log(Math.min()); //infinity
+            console.log(Math.min(1, 2)); //1 // 최소값 구하기
+            console.log(Math.min(-10, 2, '문자')); //NaN
 
+            console.log(Math.random()); //0보다 크고 1보다 작은 수 중에 랜덤으로 뽑아냄
+            var max =20;
+            var min =10;
+            Math.random()*(20-10)+10; // 10보다 크고 20보다 작은 값
+
+            //반올림 - Math.round
+            //반내림 - Math.floor
+            //반버림 - Math.ceil
 
     </script>
 </head>
