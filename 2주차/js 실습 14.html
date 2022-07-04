@@ -4,74 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js - 실습</title>
+    <title>js - 실습 - 방명록 만들기</title>
     <style>
         
     </style>
     <script>
 
         /*
-        간단 계산기 만들기
+        방명록 만들기
         */
 
-        function add() {
-            var n1 = document.getElementById('n1');
-            var n2 = document.getElementById('n2');
-            var n3 = document.getElementById('n3');
-            var result = "";
-
-            if ( n3.value == "+" ) result = parseInt(n1.value) + parseInt(n2.value);
-            else if ( n3.value == "-" ) result = parseInt(n1.value) - parseInt(n2.value);
-            else if ( n3.value == "/" ) result = parseInt(n1.value) / parseInt(n2.value);
-            else if ( n3.value == "*" ) result = parseInt(n1.value) * parseInt(n2.value);
+        function add () {
+            var n1 = document.getElementById("text1");
+            var n1 = document.getElementById("text2");
             
-
-            var input =document.getElementById('result0');
-            input.value = result;
-
-            var a = 1;
-            var b = a;
+            var a = document.getElementById("name")
+            var b = document.getElementById("content")
+            var c = document.getElementById("date")
             
-        }
-
-
-        function remove() {
-            var input =document.getElementById('result');
-            input.value = "";
-
+           
 
         }
+        
 
     </script>
 </head>
 <body>
     
+    <p>
+        방명록 입니다.
+    </p>
+    
     <div>
-        <label for="값1"> 값1 :</label>
-        <input type="text"  id="n1">
+        <label for="">
+            작성자
+        </label>
+        <input type="text" id="text1">
+    </div>
+    <div>
+        <label for="">
+            내용
+        </label>
+        <input type="text" id="text2">
+    </div>
+    <div>
+        <button type="button" onclick="add();">
+            작성
+        </button>
     </div>
 
-    <div>
-        <label for="값2"> 값2 :</label>
-        <input type="text"  id="n2">
-    </div>
-    
-    <div>
-        <label for="연산자"> 연산자 :</label>
-        <input type="text" id="n3">
-    </div>
-    
-    <div>
-        <label for="결과"> 결과 :</label>
-        <input type="text"  id="result0">
-    </div>
-
-    
-    <div>
-        <button type="button" onclick="add();"> 계산하기 </button>
-        <button type="button" onclick="remove();"> 초기화 </button>
-    </div>
-    
+    <table border="1" cellspacing="0" >
+        <tr>
+            <td>번호</td>
+            <td>작성자</td>
+            <td>내용</td>
+            <td>작성일</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td id="name"></td>
+            <td id="content"></td>
+            <td id="date"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td id="name"></td>
+            <td id="content"></td>
+            <td id="date"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td id="name"></td>
+            <td id="content"></td>
+            <td id="date"></td>
+        </tr>
+        
+    </table>
+        
     
 
 </body>
