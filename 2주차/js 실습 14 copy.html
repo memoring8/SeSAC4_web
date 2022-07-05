@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - 실습 - 방명록 만들기</title>
+    <style>
+        
+    </style>
+    <script>
+
+        /*
+        방명록 만들기
+        */
+
+        let i = 1;
+
+        function add () {
+            let tb = document.getElementById('tb');
+            let row = tb.insertRow(tb.rows.length);
+
+            date = i;
+            i++;
+
+            let name = document.getElementById('text1').value;
+            let content = document.getElementById('text2').value;
+            let date = new date() = function () {
+                return this.data.getFullYear() + "-"
+                + (this.data.getMonth()+1) + "-"
+                + this.data.getDate()
+                + this.data.getHours() + ":"
+                + this.data.getMinutes();
+            }
+
+            let get = 
+                `<tr>
+                    <td> ${name} </td>
+                    <td> ${name} </td>
+                    <td> ${name} </td>
+                    <td> ${name} </td>`;
+
+        }
+        
+
+    </script>
+</head>
+<body>
+    
+    <p>
+        방명록 입니다.
+    </p>
+    
+    <div>
+        <label for="">
+            작성자
+        </label>
+        <input type="text" id="text1">
+    </div>
+    <div>
+        <label for="">
+            내용
+        </label>
+        <input type="text" id="text2">
+    </div>
+    <div>
+        <button type="button" onclick="add();">
+            작성
+        </button>
+    </div>
+
+    <table border="1" cellspacing="0" >
+        <th>번호</th>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+    
+    
+
+</body>
+</html>
