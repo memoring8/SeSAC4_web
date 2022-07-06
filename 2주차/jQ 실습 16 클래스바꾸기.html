@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 수업 02</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+    
+    <script>
+        
+
+        // function 
+        // $('div').css('background-color', 'orange');
+
+        let arr = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+        for (arr =0; arr<10; 1++) {
+            console.log(arr);
+            function changeColor () {
+            if($('div').css('background-color',arr)) {
+                $('div').css('background-color', arr);
+            }
+        }
+
+        //
+        // function changeColor () {
+        //     if($('div').css('background-color','red')) {
+        //         $('div').css('background-color', 'orange');
+        //     }
+        // }
+        
+        
+        
+        
+
+      
+    </script>
+    <style>
+       .css1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+       }
+       /* .css1:hover {
+        background-color: orange;
+        
+       } */
+    </style>
+</head>
+<body>
+    <div class="css1" onclick="changeColor()">
+        
+    </div>
+    
+    
+    
+
+
+</body>
+</html>
