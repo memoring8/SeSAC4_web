@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    
+    <script>
+    //  jquery 형태
+    //  $(선택자).동작함수();
+
+        // 값 설정하기
+        function setValue() {
+            $('#inpu1').val('setting');
+        }
+        
+        // 값 가져오기
+        function getValue() {
+            alert($('#inpu1').val());
+        }
+
+        // css 스타일 바꾸기
+        function changeStyle() {
+            // var span = document.querySelector("span");
+            // spam.style = 'font-size: 20px; color:red;';
+            
+            $('span').css('font-size', '28px');
+            $('span').css('color', 'orange');
+        }
+
+        // text 변경하기
+        function changeText() {
+            $('span').text('jQuery');
+        }
+
+        // 속성 변경하기
+        function changeAttribute () {
+            $('img').attr('width', '100');
+        }
+
+        // html 변경하기
+        function changeHTML () {
+            $('p').html('<h3>~~~</h3>');
+        }
+        
+    </script>
+</head>
+<body>
+    <input type="text" id="input1">
+    <button type="button" onclick="setValue();">setValue</button>
+    <button type="button" onclick="getValue();">getValue</button>
+
+    <br>
+    <span>안녕</span>
+    <img src="">this is p tag
+    <button type="buttin" onclick="changeStyle()">changeStyle</button>
+    <button type="buttin" onclick="changeText()">changeText</button>
+    <button type="buttin" onclick="changeAttribute()">changeAttribute</button>
+    
+    <p style="background-color: orange">p tag</p>
+    <button type="buttin" onclick="changeHTML()">changeHTML</button>
+</body>
+</html>
