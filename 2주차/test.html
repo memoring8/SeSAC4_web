@@ -3,57 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <script>
-        let num = 0;
-        function increase(){
-            count=num+1;
-            td1.innerText=count;
-        }
+        
+        let today = new Date();
+        function dateFormat(date){
+            return this.data.getFullYear() + "-"
+                + (this.data.getMonth()+1) + "-"
+                + this.data.getDate()
+                + this.data.getHours() + ":"
+                + this.data.getMinutes();};
 
-        let tr2 = document.createElement(tr, td*4);
-        let td = document.getElementById(table);
-        td.appendChild(tr2);
-        
-        
-        
     </script>
-
-    <table border="1">
-        
-        <td>z</td>
-        <td>zz</td>
-        <td>zzz</td>
-        
-        
-    </table>
-
-    <table border="1">
-        <tr>
-        <td>z</td>
-        <td>zz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        <td>zzz</td>
-        </tr>
-    </table>
-
-    <table>
-        <tr>
-        <td>z</td>
-        <td>zz</td>
-        <td>zzz</td>
-        </tr>
-    </table>
 </body>
 </html>
