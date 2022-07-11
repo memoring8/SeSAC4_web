@@ -9,8 +9,9 @@
                 var garo = document.createElement("tr");
                 var kan1 = document.createElement("td");
                 kan1.innerText = cnt;
-                cnt = cnt + 1;
+                cnt = cnt + 1; //cnt++ 도 가능
                 //kan1.innerText = document.querySelectorAll("#table > tr").length;
+
                 var kan2 = document.createElement("td");
                 kan2.innerText = name;
                 var kan3 = document.createElement("td");
@@ -19,6 +20,7 @@
                 var date = new Date();
                 console.log( date );
                 kan4.innerText = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+                
                 garo.appendChild(kan1);
                 garo.appendChild(kan2);
                 garo.appendChild(kan3);
@@ -55,7 +57,7 @@
                          <th>내용</th>
                          <th>작성일</th>
                      </tr>
-                     <tr>
+                     <!-- <tr>
                         <th>번호</th>
                         <th>작성자</th>
                         <th>내용</th>
@@ -66,7 +68,7 @@
                         <th>작성자</th>
                         <th>내용</th>
                         <th>작성일</th>
-                    </tr>
+                    </tr> -->
                  </table>
             </div>
          </div>
