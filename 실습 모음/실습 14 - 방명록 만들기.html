@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별 왜 안되지</title>
+    
+    <script>
+        let cnt = 1;
+        function write () {
+            let name = document.getElementById('name').value;
+            let content = document.getElementById('content').value;
+            
+            let table = document.getElementById('table');
+            let tr = document.createElement('tr');
+            let td1 = document.createElement('td');
+            td1.innerText = cnt;
+            cnt = cnt + 1;
+
+            let td2 = document.createElement('td');
+            td2.innerText = name;
+            let td3 = document.createElement('td');
+            td3.innerText = content;
+            let td4 = document.createElement('td');
+            let date = new Date();
+            td4.innerText = date.getFullYear() + '-' + (date.getMonth()+1)+'-'+date.getDay() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            table.appendChild(tr);
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <p>방명록입니다.</p>
+    <div>
+        <label for="작성자">작성자 : </label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="내용">내용 : </label>
+        <input type="text" id="content">
+    </div>
+    <button type="button" onclick="write();"> 작성 </button>
+
+    <table border="1" id="table">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+</body>
+</html>

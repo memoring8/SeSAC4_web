@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별</title>
+    <script>
+        
+        function cul () {
+            let n1 = document.getElementById('num1').value;
+            let n2 = document.getElementById('num2').value;
+            let operator =document.getElementById('operator').value;
+            n1 = parseInt(n1);
+            n2 = parseInt(n2);
+            
+
+            let num = 0;
+            switch (operator) {
+                case '+': 
+                    num = n1 + n2;
+                break;
+                case '-': 
+                    num = n1 - n2;
+                break;
+                case '/': 
+                    num = n1 / n2;
+                break;
+                case '*': 
+                    num = n1 * n2;
+                break;
+            }
+
+            let result =document.getElementById('result');
+            result.value=num;
+        }
+
+        function reset () {
+            let input = document.querySelectorAll('input');
+            for (i=0; i<input.length; i++) {
+                let selected = input[i];
+                selected.value='';
+            }
+        }
+    </script>
+</head>
+<body>
+    가가가가가
+    <div>
+        <label for="값1">값1 :</label>
+        <input type="text" id="num1">
+    </div>
+    <div>
+        <abel for="값2" >값2 :</abel>
+        <input type="text" id="num2">
+    </div>
+    <div>
+        <label for="연산자">연산자 :</label>
+        <input type="text" id="operator">
+    </div>
+    <div>
+        <label for="결과">결과 :</label>
+        <input type="text" id="result">
+    </div>
+
+    <button onclick="cul()">계산하기</button>
+    <button onclick="reset ()">초기화</button>
+    
+</body>
+</html>
