@@ -1,0 +1,103 @@
+/* navbar */
+
+#nav {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: white;
+    border-bottom: 1px solid gray;
+}
+
+/* main */
+.title {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    margin: 70px;
+}
+
+.main3 {
+    align-self: flex-end;
+}
+
+/* video */
+.second {
+    margin: 0px 150px;
+    
+}
+
+.video {
+    text-align: center;
+    margin: 50px;
+}
+
+.border {
+    border-bottom: 1px solid gray;
+    margin: 70px 0;
+}
+
+/* new */
+.new {
+    position: relative;
+    left: 40px;
+    top: -720px;
+    margin: 0px 150px;
+}
+.ncontent {
+    position: relative;
+    width: 330px;
+    bottom: -520px;
+}
+
+.new1 {
+    position: relative;
+    left: 680px;
+    bottom: 0px;
+
+}
+
+/* best */
+.best {
+    position: relative;
+    left: 730px;
+    top: -720px;
+    margin: 0px 150px;
+}
+.bcontent {
+    position: relative;
+    width: 335px;
+    bottom: -490px;
+}
+
+.best1 {
+    position: relative;
+    left: 190px;
+    bottom: 0px;
+
+}
+
+
+/* navbar - bottom */
+#nav2 {
+    position: sticky;
+    bottom: 0px;
+    z-index: 10;
+    background-color: white;
+    border-top: 1px solid gray;
+}
+
+
+.search {
+    border: none;
+    border-bottom: 1px solid rgb(73, 73, 73);
+    background: transparent
+    
+}
+
+.search:focus{
+    outline:none;
+}
