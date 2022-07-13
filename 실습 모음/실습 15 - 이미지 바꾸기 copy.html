@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+    <title>Document</title>
+
+    <script>
+        function img(fruit) {
+            $('.img1').attr('src','../img/'+fruit+'.jpeg')
+            
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img class="img1" width="100" height="100">
+    </div>
+
+    <div>
+        <button type="button" onclick="img('apple')">사과</button>
+        <button type="button" onclick="img('banana')">바나나</button>
+        <button type="button" onclick="img('grape')">포도</button>
+        <button type="button" onclick="img('peach')">복숭아</button>
+    </div>
+</body>
+</html>

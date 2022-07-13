@@ -5,6 +5,7 @@
             function writeNote(){
                 var name = document.getElementById("name").value;
                 var content = document.getElementById("content").value;
+
                 var table = document.getElementById("table");
                 var garo = document.createElement("tr");
                 var kan1 = document.createElement("td");
@@ -50,6 +51,8 @@
                  <br>
                  <button type="button" onclick="writeNote();">작성</button>
                  <br><br>
+
+                 
                  <table id="table" border="1" cellpadding="10" cellspacing="1">
                      <tr>
                          <th>번호</th>
