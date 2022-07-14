@@ -1,0 +1,119 @@
+/* navbar */
+
+#nav {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: white;
+    border-bottom: 1px solid gray;
+}
+
+/* login */
+.login {
+    margin: 150px 200px 100px 400px;
+}
+
+.id {
+    margin: 40px 200px 0px 400px;
+}
+
+.password {
+    margin: 40px 200px 0px 400px;
+}
+
+
+.inputborder {
+    border-bottom: 1px solid gray;
+    margin: 0px 600px 0px 400px;
+}
+
+.logininputid {
+    margin: 0px 92px;
+    width: 320px;
+    border: none;
+    background: transparent;
+}
+.logininputpw {
+    margin: 0px 20px;
+    width: 320px;
+    border: none;
+    background: transparent;
+}
+
+.logininputid:focus{
+    outline:none;
+}
+
+.logininputpw:focus{
+    outline:none;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    width: 140px;
+    height: 100px;
+    border-radius: 0px;
+    position: absolute;
+    left: 900px;
+    top: 400px;
+    border: none;
+}
+
+.fc {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 600px 300px 400px;
+}
+.forget {
+    text-decoration: none;
+    color: darkgray;
+}
+
+.create {
+    text-decoration: none;
+    color: darkgray;
+}
+
+.forget:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.create:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.border {
+    border-bottom: 1px solid gray;
+    margin: 70px 0;
+}
+
+/* footer */
+.footer {
+    margin: 0px 150px 70px 150px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* navbar - bottom */
+#nav2 {
+    position: sticky;
+    bottom: 0px;
+    z-index: 10;
+    background-color: white;
+    border-top: 1px solid gray;
+}
+
+.search {
+    border: none;
+    border-bottom: 1px solid rgb(73, 73, 73);
+    background: transparent
+    
+}
+
+.search:focus{
+    outline:none;
+}
