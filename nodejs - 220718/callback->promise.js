@@ -1,9 +1,7 @@
 function login (id,pw) {
     return new Promise ( function(resolve, reject) {
-        setTimeout(function( ) {
-            console.log('사용자 입장');
-            resolve(id)
-        }, 3000);
+
+        resolve();
     })
 }
 
@@ -24,15 +22,29 @@ function getDetail (video) {
     });
 }
 
+// login( ‘kim’, ‘1234’ )
+//     .then( function(user){
+//         console.log( ‘user님 환영’ );
+//         return getVideo(user);
+//     })
+//     .then( function(videos){
+//         console.log( videos );
+//         return getDetail( videos[0] );
+//     })
+//     .then( function(title) {
+//         console.log( title );
+//     })
 
 login ('kim', '1234')
 .then(function(user){
-    console.log('user님 환영');
-    return getVideo(user);
+    console.log('use환영');
+    var videos = getVideo(userr님 );
+    return videos;
 })
 .then(function(videos){
     console.log(videos);
-    return getVideo(videos[0]);
+    var title =  getDetail(videos[0]);
+    return title;
 })
 .then(function(title){
     console.log(title);

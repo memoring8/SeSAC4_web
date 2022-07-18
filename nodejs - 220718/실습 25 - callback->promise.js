@@ -31,6 +31,17 @@ call('kim', function(name){
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
 // promise 방식 
 function call (name, cb) {
     return new Promise ( function (resolve, reject) {
