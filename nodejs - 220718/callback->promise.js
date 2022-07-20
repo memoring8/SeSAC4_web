@@ -22,30 +22,15 @@ function getDetail (video) {
     });
 }
 
-// login( ‘kim’, ‘1234’ )
-//     .then( function(user){
-//         console.log( ‘user님 환영’ );
-//         return getVideo(user);
-//     })
-//     .then( function(videos){
-//         console.log( videos );
-//         return getDetail( videos[0] );
-//     })
-//     .then( function(title) {
-//         console.log( title );
-//     })
-
-login ('kim', '1234')
-.then(function(user){
-    console.log('use환영');
-    var videos = getVideo(userr님 );
-    return videos;
-})
-.then(function(videos){
-    console.log(videos);
-    var title =  getDetail(videos[0]);
-    return title;
-})
-.then(function(title){
-    console.log(title);
-});
+login( 'kim', '1234' )
+    .then( function(user){
+        console.log( 'user님 환영' );
+        return getVideo(user);
+    })
+    .then( function(videos){
+        console.log( videos );
+        return getDetail( videos[0] );
+    })
+    .then( function(title) {
+        console.log( title );
+    })
