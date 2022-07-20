@@ -15,4 +15,5 @@ const server = http.createServer(async function(req, res) {
 
 server.listen(8000, function(){
     console.log('8000번 포트');
+    
 })
