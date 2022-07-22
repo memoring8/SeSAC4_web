@@ -1,3 +1,6 @@
+// html 파일 전송
+// promise 방식
+
 const http = require('http');
 const fs = require('fs').promises;
 
