@@ -9,7 +9,8 @@ app.set('view engine', 'ejs');
 app.use('/abc', express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('test');
+    var list = ['apple', 'banana']; //DB에서 정보를 가져왔다.
+    res.render('test', {list: list});
 });
 
 app.listen(port, () => {
