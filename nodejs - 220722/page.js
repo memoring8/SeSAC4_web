@@ -6,14 +6,12 @@ const port = 8000;
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
+app.use( express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('css06');
+    res.render('main');
 });
 
 app.listen(port, () => {
     console.log('server port : ', port);
 });
-
-
