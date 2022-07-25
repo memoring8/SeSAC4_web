@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> index.ejs </title>
+</head>
+<body>
+    <form action="receive" method="get">
+        <fieldset>
+            <label for="">
+                이름 :
+                <input type="text" name="name" placeholder="이름" required>
+            </label>
+            <br>
+            <input type="radio" name="gender" value="남" >
+            <label for="gender_1"> 남 </label>
+            <input type="radio" name="gender" value="여"> 여   <br>
+        </fieldset>
+         
+        <fieldset>
+            <input type="checkbox" name="sport" value="축구"> 축구
+            <input type="checkbox" name="sport" value="야구"> 야구
+            <input type="checkbox" name="sport" value="농구"> 농구
+            
+        </fieldset>
+        
+        <!-- <input type="date">
+        <input type="color">
+        <input type="number">
+        <input type="time">
+        <input type="password">
+        <input type="reset" value="reset"> -->
+
+        <select name="year" id="">
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+        </select>
+        <button> 전송 </button>
+    </form>
+</body>
+</html>
