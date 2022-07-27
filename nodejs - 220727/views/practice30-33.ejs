@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 실습 30 - get으로 정보 받기</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        function test(){
+            axios({
+                method:'get',
+                url: 'http://localhost:8080/test',
+            })
+            .then((a) => {
+                console.log(a);
+                console.log( a.data );
+                console.log( a.data.b );
+                return a.data;
+            })
+            .then((rrr) => {
+                console.log( rrr.b );
+            });
+        }
+
+        function sendform(){
+            var form = document.getElementById('form1');
+            console.log(form);
+
+            var result = form.checkValidity();
+            if(!result) {
+                form.reportValidity();
+                return false;
+            }
+            console.log(result);
+
+
+            axios({
+                method:'get',
+                url: 'http://localhost:8080/p30',
+                params:{
+                    name: form.name.value,
+                    gender: form.gender.value,
+                    year: form.year.value,
+                    month: form.month.value,
+                    date: form.date.value
+                }
+            })
+            .then((a) => {
+                console.log(a);
+                alert(a.data.message);});
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <button type="button" onclick="test()">test</button>
+    <form action="p30" method="get" id="form1">
+        <fieldset >
+            <legend> 폼 전송 - 실습 </legend>
+
+            <label for="name"> 이름
+                <input type="text" name="name" required>
+            </label>
+
+            <br>
+            <label for="gender"> 성별
+                <input type="radio" name="gender" value="남자" required> 남자
+                <input type="radio" name="gender" value="여자" required> 여자
+            </label>
+
+            <br>
+            <label for="year"> 생년월일
+                <select name="year">
+                    <% for (var y =1950; y < 2023; y++) { %>
+                    <option value="<%=y %>년">
+                        <%=y %>년
+                    </option>
+                    <% } %>
+                </select>
+                년
+            </label>
+
+            <label for="month">
+                <select name="month">
+                    <% for (var m =1; m < 13; m++) { %>
+                    <option value="<%=m %>월">
+                        <%=m %>월
+                    </option>
+                    <% } %>
+                </select>
+                월
+            </label>
+
+            <label for="date">
+                <select name="date">
+                    <% for (var d =1; d < 32; d++) { %>
+                    <option value="<%=d %>일">
+                        <%=d %>일
+                    </option>
+                    <% } %>
+                </select>
+                일
+            </label>
+
+            <br>
+            <label for="interest">
+                <input type="checkbox" name="interest" value="여행"> 여행
+                <input type="checkbox" name="interest" value="패션"> 패션
+                <input type="checkbox" name="interest" value="음식"> 음식
+            </label>
+
+            <br>
+            <label for="file"> 파일
+                <input type="file" name="file" value="파일"> 
+            </label>
+
+            <br>
+            <lable for="Vol"> Vol.
+                <input type="range" name="Vol" value="Vol">
+            </lable>
+            
+            <br>
+            <br>
+            <button type="button" onclick="sendform()">
+                회원가입
+            </button>
+        </fieldset>
+    </form>
+
+
+</body>
+
+</html>

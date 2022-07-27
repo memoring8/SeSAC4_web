@@ -16,16 +16,45 @@
                 justify-content: center;
             }
         </style>
+
+        <script>
+            function login(){
+            var form = document.getElementById('form2');
+            console.log(form);
+
+            var result = form.checkValidity();
+            if(!result) {
+                form.reportValidity();
+                return false;
+            }
+            console.log(result);
+
+            //
+
+            axios({
+                method:'post',
+                url: 'http://localhost:8080/p32-1',
+                data:{
+                    id: req.body.id,
+                    password: req.body.password
+                    }
+                })
+                .then((a) => {
+                    console.log(a);
+                
+                })
+            }   
+        </script>
     </head>
 
     <body>
-        <form action="p32" method="post" class="form">
+        <form action="p32" method="post" class="form" id="form2">
 
 
             <div class="mb-3 row">
                 <label for="id" class="col-sm-2 col-form-label"> ID </label>
                 <div class="col-sm-10">
-                    <input class="form-control" type="text" name="id">
+                    <input class="form-control" type="text" name="id" id="id">
                 </div>
             </div>
 
@@ -33,12 +62,13 @@
             <div class="mb-3 row">
                 <label for="password" class="col-sm-2 col-form-label"> PASSWORD </label>
                 <div class="col-sm-10">
-                    <input class="form-control" type="password" name="password">
+                    <input class="form-control" type="password" name="password" id="password">
                 </div>
             </div>
             
             <br>
-            <button type="submit" class="btn btn-primary"> 로그인 </button>
+            <p id="errorText"> </p>
+            <button type="submit" class="btn btn-primary" onclick="login()"> 로그인 </button>
     </body>
 
 </html>
