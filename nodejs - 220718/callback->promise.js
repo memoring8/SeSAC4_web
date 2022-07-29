@@ -1,8 +1,12 @@
+// https://defineall.tistory.com/720
+
+
+
 function login (id,pw) {
     return new Promise ( function(resolve, reject) {
 
         resolve();
-    })
+    });
 }
 
 

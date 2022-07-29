@@ -1,5 +1,7 @@
 // callback 방식 -> promise 방식으로 바꾸기
 
+// callback 방식
+
 function call (name, cb) {
     setTimeout (function() {
         console.log(name);
@@ -41,37 +43,3 @@ call('kim', function(name){
 
 
 
-
-// promise 방식 
-function call (name, cb) {
-    return new Promise ( function (resolve, reject) {
-        setTimeout(function() {
-            console.log(name);
-            resolve(name);
-        }, 1000);
-    })
-}
-
-function back (cb) {
-    return new Promise (function(resolve, reject) {
-        setTimeout (function() {
-            console.log('back');
-            resolve('back');
-        }, 1000);
-    })
-}
-
-function call(cb) {
-    return new Promise (function(resolve, reject) {
-        setTimeout (function() {
-            cb('callback hell');
-        }, 1000);
-    })
-}
-
-call ('kim')
-.then(function(name) {
-    console.log(name + '반가워');
-    return back(name);
-})
-.then(function(){})
