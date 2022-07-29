@@ -36,7 +36,7 @@ app.post('/receive', function(req, res) {
 
     // 딕셔너리 형태로 데이터 보내기
     let name = req.body.name;
-    let msg = req.body.name + '안녕';
+    let msg = req.body.name + req.bosy.age + '안녕';
     res.send( {name: name, message: msg} );
 })
 

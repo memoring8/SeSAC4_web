@@ -2,4 +2,4 @@ function connect() {
     return 'connect';
 }
 
-module.expory = connect;
+module.export = connect;

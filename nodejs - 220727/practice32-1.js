@@ -35,6 +35,8 @@ app.post('/p32', function(req,res){
 
     let id = req.body.id;
     let password = req.body.password;
+    console.log(id);
+    console.log(password);
     res.send({});
     
 });

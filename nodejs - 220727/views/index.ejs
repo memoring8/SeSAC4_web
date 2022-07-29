@@ -27,7 +27,8 @@
                 params:{
                     name: 'codee'
                 }
-            }).then((a) => {return a.data;}).then((d) => {
+            }).then((a) => {return a.data;})
+                .then((d) => {
                 alert(d.message);
             });
         }
