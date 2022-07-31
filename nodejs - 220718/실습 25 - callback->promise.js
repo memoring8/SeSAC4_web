@@ -24,9 +24,9 @@ function hell (cb) {
 
 call('kim', function(name){
     console.log(name + '반가워');
-    back (function(txt) {
+        back (function(txt) {
         console.log(txt + '을 실행했구나');
-        hell (function(message) {
+            hell (function(message) {
             console.log('여기는' + message);
         });
     });

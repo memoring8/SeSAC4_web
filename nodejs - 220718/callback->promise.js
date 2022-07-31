@@ -1,4 +1,11 @@
+// promise
 // https://defineall.tistory.com/720
+// promise 성공 시, resolve 호출
+// promise 실패 시, reject 호출
+// 새로운 promise 생성
+    // (return) new Promise (resolve, reject)
+    // resolve는 then으로 연결
+    // reject는 catch으로 연결
 
 
 

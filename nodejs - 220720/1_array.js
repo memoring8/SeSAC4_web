@@ -5,6 +5,8 @@ let list = ['apple', 'banana'];
 
 [item1, item2, item3 = 'melon'] = list;
 
+
+
 let x = 1;
 let y = 3;
 

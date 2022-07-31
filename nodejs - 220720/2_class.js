@@ -10,9 +10,9 @@ class Cat {
 
 var cat1 = new Cat('나비');
 var cat2 = new Cat('냥이');
-console.log(cat1);
-cat1.mew();
-cat2.mew();
+console.log(cat1); // Cat {name: '나비'}
+cat1.mew(); // 나비야옹
+cat2.mew(); // 냥이야옹
 
 
 
@@ -31,5 +31,6 @@ class Car {
         return this.color;
     }
 }
+
 
 module.export = { Car };
