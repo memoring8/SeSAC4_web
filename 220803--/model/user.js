@@ -7,6 +7,8 @@ exports.post_user = function(data){
     
 }
 
+
+
 exports.get_user = async function(){
     var buffer = await fs.readFile('./info.txt');
     return buffer.toString();
