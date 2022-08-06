@@ -4,14 +4,33 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        
+        <script>
+            function writeComment() {
+                var form = document.getElementById('form_comment');
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:8000/visitor/write',
+                    data: {
+                        name: form.name.value,
+                        comment: form.comment.value
+                    }
+                })
+                .then((rep) => {
+                    return req.data;
+                })
+                .then((data) => {
+                    // data = {id: 8}
+                    let html = '<tr><td> ' + data.id + '</td><td>' + form.name.value + '</td><td>' + form.comment.value + '</td></tr>';
+                    $('table').append(html);
+                })
+            }
+        </script>
     </head>
     <body>
         <div>
             <form id="form_comment">
               <fieldset>
                 <legend>방명록 등록</legend>
-                <div><input name="id" type="hidden" placeholder="사용자 이름"></div>
                 <div><input name="name" type="text" placeholder="사용자 이름"></div>
                 <div><input name="comment" type="text" placeholder="방명록"></div>
                 <div id="button-group">

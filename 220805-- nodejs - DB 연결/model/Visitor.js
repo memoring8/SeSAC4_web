@@ -13,3 +13,12 @@ exports.get_visitors = (cd) => {
         cd(rows);
     });
 }
+
+exports.insert = (name, comment) => {
+    var sql = "INSERT INTO visitor(name, comment) VALUES('" + name + "', '" + comment + "')";
+    cnn.query(sql, (err, rows, cb) => {
+        if (err) throw err;
+        console.log(rows);
+        cb(rows.insertId);
+    })
+}
