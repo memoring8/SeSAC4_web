@@ -66,7 +66,7 @@ app.get('/profile', (req, res) => {
         return false;
     }
 
-    req.session.id // 로 작업
+    req.session.id // 로 작업 ~
     res.render('profile');
 });
 
