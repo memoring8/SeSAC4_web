@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <link rel="stylesheet" href="./community.css">
+    <script src="community copy.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- <script>
+        function reply(){
+
+        }
+        function writeComment(){
+            let form = document.getElementsByClassName('form_comment');
+            
+            axios({
+                method: 'post',
+                url: 'http://localhost:8000/comment/write',
+                data: {
+                    comment: form.comment.value
+                }
+            })
+            .then((rep) => {return rep.data;})
+            .then((data) => {
+                let html = `
+                <li class="new_comment">
+                <div class="user_comment">
+                <div class="user_comment_nickname">iAmUser</div>
+                <span class="user_comment_comment">
+                ${form.comment.value}
+                </span>
+                <img src='/img/close.png' class="comment_del" onclick="deleteComment() ;">
+                </div>
+                <li>
+                `;
+
+                $('comment_list').appendChild(html)
+            });
+        }
+
+        function deleteComment(id){
+            axios({
+                method: 'delete',
+                url: 'http://localhost:8000/visitor/delete',
+                data: {id: id}
+            }).then((rep) => {return rep.data;})
+            .then((data) => {
+                alert(data);
+                var userComment = document.getElementsByClassName('user_comment');
+                $(userComment).remove();
+
+                // $('#tr_'+id).remove();
+            });
+        }
+    </script> -->
+    
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        navbar
+    </div>
+
+    <!-- comment -->
+    <main class="main">
+        <article class="comment">
+            <h2>Comment</h2>
+            <section class="user_comment_wrap">
+                <div class="comment_scroll">
+                    <ul class="comment_list">
+                        <li>
+                            <div class="user_comment">
+                                <div class="comment_nickname">user01</div>
+                                <span class="comment_comment">서울 민소매에 얇은 남방 + 여름슬랙스 비도 조금씩 오고 너무 습해.</span>
+
+                                <img src="/img/icon-off.png" class="like">
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="user_comment">
+                                <div class="comment_nickname">user02</div>
+                                <span class="comment_comment">서울 민소매 + 반바지 해 없으니까 시원해 근데 습하다 ㅜㅜ</span>
+
+                                <div>
+                                    <button class="reply">
+                                        답글달기
+                                    </button>
+                                    <img src="/img/icon-off.png" class="like2">
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <!-- post comment -->
+            <section class="post_comment_wrap">
+                <div class="post_comment_all">
+                    <div class="post_comment_line">
+                    </div>
+                    <!-- <form class="form_comment"> -->
+                        <div class="post_comment">
+                        <input id="post_comment_input" type="text" placeholder="댓글 달기..." name="comment"/>
+                        <button type="button" class="post_comment_btn" >게시</button>
+                        </div>
+                    <!-- </form> -->
+                    
+                </div>      
+            </section>
+        </article>
+    </main>
+</body>
+</html>
