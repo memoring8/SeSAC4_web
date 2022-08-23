@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <link rel="stylesheet" href="community.css">
+    <script src="community.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        navbar
+    </div>
+
+    <!-- comment -->
+    <main class="main">
+        <article class="comment">
+            <h2>Comment</h2>
+            <section class="user_comment_wrap">
+                <div class="comment_scroll">
+
+                    <% if(comments.length){ %>
+                    <ul class="comment_list">
+                        <% comments.forEach(function(comments) {%>
+                        <li>
+                            <div class="user_comment">
+                                <div class="comment_nickname"><% comment.author.nickname%></div>
+                                <div data-date-time="<%= comment.createdAt %>"></div>
+                                <span class="comment_comment"><%= comment.text %></span>
+                            </div>
+                            <!-- <button><i class="far fa-heart fa-xs"></i></button> -->
+                        </li>
+                        <li>
+                            <div class="user_comment">
+                                <div class="comment_nickname">user02</div>
+                                <span class="comment_comment">서울 민소매 + 반바지 해 없으니까 시원해 근데 습하다 ㅜㅜ</span>
+                            </div>
+                            
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <!-- post comment -->
+            <section class="post_comment_wrap">
+                <!-- <button class="emoji"><i class="far fa-smile fa-2x"></i></button> -->
+                <div class="post_comment_all">
+                    <div class="post_comment_line">
+                    </div>
+                    <!-- <form action="" method="post"> -->
+                        <div class="post_comment">
+                            <input id="post_comment_input" type="text" placeholder="댓글 달기..." <%= !isAuthenticated?'disabled':'' %> class="form-control <%= (commentError.errors.text)?'is-invalid':'' %>"><%= commentForm.form.text %> />
+                            <button class="post_comment_btn">게시</button>
+                        </div>
+                        <% if(commentError.errors.text){ %>
+                            <div class="post_feedback "><%= commentError.message %></div>
+                        <% } %>
+                    <!-- </form>  -->
+                </div>      
+            </section>
+        </article>
+    </main>
+</body>
+</html>
