@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soket 수업</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+</head>
+
+<body>
+    <button type="button" onclick="btnClick();"> 클릭 </button>
+    <script>
+        var socket = io.connect();
+
+        // .on은 받겠다는 뜻 ('이벤트명', 콜백함수)
+        socket.on('connect', function(){
+            console.log('server connected');
+        });
+
+        // 서버에서 io.emit이든 socket.emit이든 "hello"라는 이벤트를 보내면 받겠다 라는 거예요.
+        socket.on('hi', function(data){
+            console.log('data : ', data);
+        });
+
+        function btnClick() {
+            socket.emit('click', 'click!!');
+        }
+
+        // clickResponse라는 이벤트를 받겠다.
+        socket.on('clickResponse', function(data) {
+            console.log('response :', data);
+        })
+    </script>
+</body>
+</html>
