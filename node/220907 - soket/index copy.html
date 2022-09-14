@@ -69,8 +69,12 @@
 
 
     <script>
-        var id = "";
+        var nickname = prompt('닉네임을 입력해주세요.');
+
+        // var id = "";
         var socket = io.connect();
+
+        socket.emit('info2', {nickname: nickname});
         socket.on('info', function(data){
             id = data;
             console.log(data);
@@ -78,6 +82,7 @@
 
 
         function send() {
+            console.log(id);
             let msg = document.getElementById('message').value;
             // socket.emit('send', {id, msg});
             socket.emit('send', {id : id, msg : msg});
@@ -88,12 +93,18 @@
             let chat_list = document.getElementById('chat-list');
             let div = document.createElement('div'); // <div> </div>
             let div_chat = document.createElement('div'); // <div> </div>
+            
+            let span = document.createElement('span');
             // <div> </div>
+
 
             div_chat.textContent = data.msg; // <div> {msg} </div>
 
-            if (data.id == id) {div.classList.add('my-chat');}
-            else {div.classList.add('other-chat');}
+            if (data.nickname == nickname) {div.classList.add('my-chat');}
+            else {
+                span.textContent = data.nickname;
+                div.appendChild(span);
+                div.classList.add('other-chat');}
             // <div class="my-chat"> </div>
 
             // div => <div class="my-chat"> </div>
