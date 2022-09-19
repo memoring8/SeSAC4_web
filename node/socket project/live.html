@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Live chatting </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <style>
+        *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.card
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card span
+{
+    position: absolute;
+    top: 10;
+    width: 500px;
+    height: 500px;
+    display: block;
+    background-color: moccasin;
+    border-radius: 50%;
+    transform-origin: 125px 0;
+    filter: blur(80px);
+    opacity: 0.75;
+}
+.card .glass
+{
+    position: absolute;
+    width: 450px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.683);
+    overflow: hidden;
+}
+.card .glass::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -50px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+.card .glass h2
+{
+    padding: 20px;
+    font-weight: bold;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    color: rgb(240, 178, 71);
+    text-align: left;
+}
+
+/* 원래 버전 */
+.chat-list {
+    height: 80%;
+    overflow-y: auto;
+    padding: 5%;
+}
+
+.chat-list div div {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 18px;
+}
+.my-chat {
+    text-align: right;
+    margin: 5px auto;
+}
+.other-chat {
+    margin: 5px auto;
+}
+.my-chat div {
+    background-color: moccasin;
+    max-width: 100%;
+}
+.other-chat div {
+    background-color: white;
+    max-width: 100%;
+}
+.other-chat span {
+    display: block;
+    font-weight: bold;
+}
+.notice {
+    text-align: center;
+    color: #333;
+    font-weight: lighter;
+}
+
+
+/* 입력창 */
+.input {
+    padding: 2% 5%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+}
+.input input {
+    width: 70%;
+    border-radius: 18px;
+    border: 1px solid moccasin;
+    padding: 0 10px;
+    background-color: white;
+}
+.input button {
+    width: 10%;
+    border: none;
+    background-color: moccasin;
+    border-radius: 18px;
+    text-align: center;
+    padding: 2%;
+}
+
+/* 원래 버전 */
+/* .input select {
+    width: 10%;
+    padding: 5px;
+    border-radius: 18px;
+    background-color: white;
+    border: none;
+    text-align: center;
+} */
+
+/* dropdown */
+.dropdown {
+    min-width: 12%;
+}
+.select {
+    background-color: white;
+    border: 1px moccasin solid;
+    width: 110%;
+    height: 100%;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 12px;
+}
+.select:hover {
+    cursor: pointer;
+}
+.selected {
+    margin-top: 7px;
+}
+.caret {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid moccasin;
+    transition: 0.3s;
+    height: 0;
+    margin-top: 12px;
+}
+.caret-rotate {
+    transform: rotate(180deg);
+}
+.menu {
+    list-style: none;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px moccasin solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: blueviolet;
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+.menu li {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.menu li:hover {
+    background-color: moccasin;
+}
+.active {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.menu-open {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span></span>
+        <div class="glass">
+            <h2> Live chat </h2>
+            <div id="chat-list" class="chat-list">
+                <!-- messages -->
+            </div>
+            
+            <div class="input">
+                <!-- dropdown -->
+                <div class="dropdown">
+                    <div class="select">
+                        <div class="selected">All</div>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu" id="nick-list">
+                        <li value="All" class="active">All</li>
+                    </ul>
+                </div>
+
+                <!-- 원래 버전 -->
+                <!-- <select name="" id="nick-list">
+                    <option value="All"> All </option>
+                </select> -->
+    
+                <input type="text" id="message">
+                <button type="button" onclick="send();"> send </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var nickname = prompt("닉네임을 입력해주세요.");
+        var socket = io.connect();
+        socket.emit("info2", { nickname: nickname } );
+        // socket.on("info", function(data){ console.log( data ); id = data;});
+
+        function send(){
+            let msg = document.getElementById("message").value;
+            
+            let nick = document.getElementById('nick-list').value;
+            // socket.emit("send", {id, msg});
+            socket.emit("send", { msg: msg , to : nick} );
+            document.getElementById("message").value = "";
+
+            // 자동 스크롤
+            const scroll = document.getElementById('chat-list');
+            scroll.scrollTop = scroll.scrollHeight;
+        }
+        socket.on("newMessage", function(data){
+            // data = { id: ~~~, msg: ~~ }
+            let chat_list = document.getElementById("chat-list");
+            let div = document.createElement("div"); // <div></div>
+            let div_chat = document.createElement("div"); // <div></div>
+            var span = document.createElement("span");
+            // <div></div>
+
+            div_chat.textContent = data.msg; // <div>{msg}</div>
+
+            // dm 표시
+            if (data.is_dm) div_chat.textContent = '(DM) ' + div_chat.textContent;
+
+            if ( data.nickname == nickname ) { div.classList.add("my-chat"); }
+            else {
+                span.textContent = data.nickname;
+                div.appendChild(span); 
+                div.classList.add("other-chat"); 
+            }
+            // <div class="my-chat"></div>
+
+            // div => <div class="my-chat"></div>
+            // div_chat => <div>{msg}</div>
+            
+            div.appendChild(div_chat);
+            // <div class="my-chat">
+                // <div>{msg}</div>
+            // </div>
+            chat_list.appendChild(div);
+
+            // 자동 스크롤
+            const scroll = document.getElementById('chat-list');
+            scroll.scrollTop = scroll.scrollHeight;
+        });
+
+
+
+        socket.on("notice", function(data){
+            let chat_list = document.getElementById("chat-list");
+            let div = document.createElement("div"); // <div></div>
+            div.textContent = data;
+            div.classList = "notice";
+            
+            chat_list.appendChild(div);
+        });
+
+        socket.on('list', function(list){
+            // list = {id~~: nickname, id~~~: nickname};
+            let nick_list = document.getElementById('nick-list');
+            while (nick_list.firstChild){nick_list.removeChild(nick_list.lastChild);}
+            let option = document.createElement('li');
+            option.text = 'All';
+            option.value = 'All';
+            nick_list.appendChild(option);
+            // test bu
+            // let option = document.createElement('option');
+            // option.text = 'All';
+            // option.value = '전체';
+            // nick_list.appendChild(option);
+
+            var a = {
+                key1: '1',
+                key2: '2',
+                key3: '3',
+            };
+            for (let [key, value] of Object.entries(list)){
+                // key = 'key1', value='1'
+                // key = 'key2', value='2'
+                // key = 'key3', value='3'
+            }
+            for (let [key, value] of Object.entries(list)){
+                let option = document.createElement('li');
+                option.text = value;
+                option.value = value;
+                nick_list.appendChild(option);
+                // test bu
+                // let option = document.createElement('option');
+                // option.text = value;
+                // option.value = value;
+                // nick_list.appendChild(option);
+            }
+        });
+
+
+        // dropdown
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const select = dropdown.querySelector('.select');
+            const caret = dropdown.querySelector('.caret');
+            const menu = dropdown.querySelector('.menu');
+            const option = dropdown.querySelectorAll('.menu li');
+            const selected = dropdown.querySelector('.selected');
+
+            select.addEventListener('click', () => {
+                select.classList.toggle('select-clicked');
+                caret.classList.toggle('caret-rotate');
+                menu.classList.toggle('menu-open');
+            });
+
+            option.forEach(option => {
+                option.addEventListener('click', () => {
+                    selected.innerText = option.innerText;
+                    select.classList.remove('select-clicked');
+                    caret.classList.remove('caret-rotate');
+                    menu.classList.remove('menu-open');
+                    option.forEach(option => {
+                        option.classList.remove('active');
+                    });
+                option.classList.add('active')
+                });
+            });
+        });
+    </script>
+</body>
+</html>
