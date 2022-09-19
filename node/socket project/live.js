@@ -23,6 +23,8 @@ io.on("connection", function(socket){
     // socket.emit("info", socket.id);
     socket.on("send", function(data){
         console.log( "client message : ", data.msg );
+        
+        data['is_dm'] = false;
         data["nickname"] = list[socket.id];
 
         if( data.to == 'All') {
