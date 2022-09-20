@@ -22,14 +22,27 @@ body
     align-items: center;
     min-height: 100vh;
 }
-section.dark {
-    background-color: #161623;
+body.dark {
+    background-color: black;
 }
-.toggle {
+/* dark mode 하려고 했는데, 안함 */
+/* .toggle {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: moccasin;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+} */
+body.dark .toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -37,17 +50,14 @@ section.dark {
     display: flex;
     justify-content: center;
 }
-.dark .toggle {
-    background-color: white;
-}
 .toggle::before {
     content: '\f186';
     color: white;
     font-family: fontAwesome;
 }
-.dark .toggle::before {
-    content: '\e28f';
-    color: #161623;
+body.dark .toggle::before {
+    content: '\f186';
+    color: black;
     font-family: fontAwesome;
 }
 .card
@@ -65,7 +75,8 @@ section.dark {
     height: 500px;
     display: block;
     background-color: moccasin;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    border-radius: 18px;
     transform-origin: 125px 0;
     filter: blur(60px);
     opacity: 0.25;
@@ -79,6 +90,7 @@ section.dark {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.683);
     box-shadow: 0 0.5em 1em rgba(122, 122, 122, 0.135);
+    border-radius: 18px;
 }
 .card .glass::before
 {
@@ -90,6 +102,7 @@ section.dark {
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
     pointer-events: none;
+    border-radius: 18px;
 }
 .card .glass h2
 {
@@ -99,6 +112,7 @@ section.dark {
     background: rgba(255, 255, 255, 0.7);
     color: rgb(240, 178, 71);
     text-align: left;
+    border-radius: 16px;
 }
 
 /* 원래 버전 */
@@ -433,10 +447,10 @@ section.dark {
         });
 
         // mode
-        let sec = document.querySelector('.sec');
+        let body = document.querySelector('body');
         let toggle = document.querySelector('.toggle');
         toggle.addEventListener('click', ()=> {
-            sec.classList.toggle('dark');
+            body.classList.toggle('dark');
         });
     </script>
 </body>
