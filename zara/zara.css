@@ -1,0 +1,83 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+.content{
+    height: 100vh;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* 메뉴 */
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 14px;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+.menu div {
+    width: 16px;
+    height: 1px;
+    background-color: white;
+}
+
+/* 로고 */
+.logo img{
+    width: 172px;
+    height: 80px;
+    position: absolute;
+    left: 5rem;
+    top: 1rem;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(146deg) brightness(121%) contrast(121%);
+}
+
+/* 검색 */
+.search {
+    width: 2rem;
+    border-bottom: 1px solid white;
+    width: 50px;
+    font-size: 0.7rem;
+    font-weight: 100;
+    position: absolute;
+    left: 50rem;
+    top: 1rem;
+}
+
+/* 배경사진 */
+.content:nth-child(1){
+    background: url('img/p1.jpeg') no-repeat center;
+    background-size: cover;
+}
+.content:nth-child(2){
+    background: url('img/p2.jpeg') no-repeat center;
+    background-size: cover;
+}
+.content:nth-child(3){
+    background: url('img/p3.jpeg') no-repeat center;
+    background-size: cover;
+}
+.content:nth-child(4){
+    background: url('img/p4.jpeg') no-repeat center;
+    background-size: cover;
+}
+.content:nth-child(5){
+    background: url('img/p5.jpeg') no-repeat center;
+    background-size: cover;
+}
+.content:nth-child(6){
+    background: url('img/p6.jpeg') no-repeat center;
+    background-size: cover;
+}
+.content:nth-child(7){
+    background: url('img/p7.jpeg') no-repeat center;
+    background-size: cover;
+}
